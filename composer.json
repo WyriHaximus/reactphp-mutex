@@ -3,7 +3,8 @@
     "name": "wyrihaximus/react-mutex",
     "description": "Mutex locking for ReactPHP projects",
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "react/promise": "^2.7"
     },
     "require-dev": {
         "api-clients/test-utilities": "^5.4"
