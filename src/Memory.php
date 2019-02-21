@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace WyriHaximus\React;
+namespace WyriHaximus\React\Mutex;
 
 use React\Promise\PromiseInterface;
 use function React\Promise\resolve;
@@ -15,9 +15,10 @@ final class Memory implements MutexInterface
             return resolve(false);
         }
 
-        $rng = bin2hex(random_bytes(13));
+        $rng = \bin2hex(\random_bytes(13));
+        $this->locks[$key] = new Lock($key, $rng);
 
-        return resolve(new Lock($key, $rng));
+        return resolve($this->locks[$key]);
     }
 
     public function release(Lock $lock): PromiseInterface

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace WyriHaximus\React;
+namespace WyriHaximus\React\Mutex;
 
 use React\Promise\PromiseInterface;
 
@@ -19,7 +19,7 @@ interface MutexInterface
     /**
      * Release a previously acquired lock.
      *
-     * @param Lock $lock
+     * @param  Lock             $lock
      * @return PromiseInterface
      */
     public function release(Lock $lock): PromiseInterface;
