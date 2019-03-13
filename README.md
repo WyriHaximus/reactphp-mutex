@@ -26,7 +26,7 @@ This package provides two things:
 $key = 'key'; // Unique key for this operation
 $mutex = new Memory();
 $mutex->acquire($key)->then(function ($lock) use ($mutex) {
-    if (!($lock instanceof Lock) {
+    if (!($lock instanceof Lock)) {
         // We couldn't aquired the lock on this key
         return;
     }
