@@ -1,21 +1,32 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\React\Mutex;
 
 use React\Promise\PromiseInterface;
+
+use function array_key_exists;
+use function bin2hex;
+use function random_bytes;
 use function React\Promise\resolve;
+
+use const WyriHaximus\Constants\Boolean\FALSE_;
+use const WyriHaximus\Constants\Boolean\TRUE_;
 
 final class Memory implements MutexInterface
 {
-    private $locks = [];
+    private const RANDOM_BYTES_LENGTH = 13;
+    /** @var array<Lock> */
+    private array $locks = [];
 
     public function acquire(string $key): PromiseInterface
     {
-        if (isset($this->locks[$key])) {
-            return resolve(false);
+        if (array_key_exists($key, $this->locks)) {
+            return resolve(null);
         }
 
-        $rng = \bin2hex(\random_bytes(13));
+        $rng               = bin2hex(random_bytes(self::RANDOM_BYTES_LENGTH));
         $this->locks[$key] = new Lock($key, $rng);
 
         return resolve($this->locks[$key]);
@@ -23,12 +34,10 @@ final class Memory implements MutexInterface
 
     public function release(Lock $lock): PromiseInterface
     {
-        if (!isset($this->locks[$lock->getKey()])) {
-            return resolve(false);
+        if (! array_key_exists($lock->getKey(), $this->locks)) {
+            return resolve(FALSE_);
         }
 
-        unset($this->locks[$lock->getKey()]);
-
-        return resolve(true);
+        return resolve(TRUE_);
     }
 }

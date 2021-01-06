@@ -1,35 +1,40 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\React\Mutex;
 
-use function Clue\React\Block\await;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
+
 use function React\Promise\all;
 
 trait MutexTestsTrait
 {
     abstract public function provideMutex(LoopInterface $loop): MutexInterface;
 
-    public function testThatYouCantRequiredTheSameLockTwice(): void
+    /**
+     * @test
+     */
+    public function thatYouCantRequiredTheSameLockTwice(): void
     {
-        $loop = Factory::create();
+        $loop  = Factory::create();
         $mutex = $this->provideMutex($loop);
 
-        $firstLock = null;
-        $secondLock = null;
+        $firstLock         = '';
+        $secondLock        = '';
         $firstMutexPromise = $mutex->acquire('key');
-        $firstMutexPromise->done(function ($lock) use (&$firstLock): void {
+        $firstMutexPromise->then(static function ($lock) use (&$firstLock): void {
             $firstLock = $lock;
         });
         $secondtMutexPromise = $mutex->acquire('key');
-        $secondtMutexPromise->done(function ($lock) use (&$secondLock): void {
+        $secondtMutexPromise->then(static function ($lock) use (&$secondLock): void {
             $secondLock = $lock;
         });
 
-        await(all($firstMutexPromise, $secondtMutexPromise), $loop, 30);
+        $this->await(all([$firstMutexPromise, $secondtMutexPromise]), $loop);
 
         self::assertInstanceOf(Lock::class, $firstLock);
-        self::assertFalse($secondLock);
+        self::assertNull($secondLock);
     }
 }
