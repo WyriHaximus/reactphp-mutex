@@ -23,11 +23,11 @@ trait MutexTestsTrait
 
         $firstLock         = '';
         $secondLock        = '';
-        $firstMutexPromise = $mutex->acquire('key');
+        $firstMutexPromise = $mutex->acquire('key', 0.1);
         $firstMutexPromise->then(static function ($lock) use (&$firstLock): void {
             $firstLock = $lock;
         });
-        $secondtMutexPromise = $mutex->acquire('key');
+        $secondtMutexPromise = $mutex->acquire('key', 0.1);
         $secondtMutexPromise->then(static function ($lock) use (&$secondLock): void {
             $secondLock = $lock;
         });

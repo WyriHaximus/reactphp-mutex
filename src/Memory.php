@@ -21,20 +21,20 @@ final class Memory implements MutexInterface
         $this->locks = new ArrayCache();
     }
 
-    public function acquire(string $key): PromiseInterface
+    public function acquire(string $key, float $ttl): PromiseInterface
     {
         /**
          * @phpstan-ignore-next-line
          * @psalm-suppress TooManyTemplateParams
          */
-        return $this->locks->has($key)->then(function (bool $has) use ($key): ?Lock {
+        return $this->locks->has($key)->then(function (bool $has) use ($key, $ttl): ?Lock {
             if ($has) {
                 return null;
             }
 
             $rng  = bin2hex(random_bytes(self::RANDOM_BYTES_LENGTH));
             $lock = new Lock($key, $rng);
-            $this->locks->set($key, $lock);
+            $this->locks->set($key, $lock, $ttl);
 
             return $lock;
         });

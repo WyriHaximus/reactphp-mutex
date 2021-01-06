@@ -12,7 +12,7 @@ interface MutexInterface
      * Acquire a mutex. Will resolve with either a Lock object or false when it can't acquire the lock because another
      * requester already acquired it.
      */
-    public function acquire(string $key): PromiseInterface;
+    public function acquire(string $key, float $ttl): PromiseInterface;
 
     /**
      * Release a previously acquired lock.
