@@ -3,7 +3,7 @@
     "name": "wyrihaximus/react-mutex",
     "description": "Mutex locking for ReactPHP projects",
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "clue/block-react": "^1.3",
         "react/promise": "^2.7"
     },
@@ -13,7 +13,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "7.2"
+            "php": "7.4.7"
         }
     },
     "autoload": {
