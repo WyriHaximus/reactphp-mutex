@@ -1,6 +1,6 @@
 # Mutex locking for ReactPHP projects
 
-[![Build Status](https://travis-ci.com/WyriHaximus/reactphp-mutex.svg?branch=master)](https://travis-ci.com/WyriHaximus/reactphp-mutex)
+![Continuous Integration](https://github.com/WyriHaximus/reactphp-mutex/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/WyriHaximus/react-mutex/v/stable.png)](https://packagist.org/packages/WyriHaximus/react-mutex)
 [![Total Downloads](https://poser.pugx.org/WyriHaximus/react-mutex/downloads.png)](https://packagist.org/packages/WyriHaximus/react-mutex)
 [![Code Coverage](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-mutex/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/WyriHaximus/reactphp-mutex/?branch=master)
