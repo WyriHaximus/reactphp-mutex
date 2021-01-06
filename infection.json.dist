@@ -18,19 +18,31 @@
               "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
             ]
         },
+        "InstanceOf_": {
+            "ignore": [
+              "WyriHaximus\\React\\Mutex\\Memory::release"
+            ]
+        },
         "LogicalNot": {
+            "ignore": [
+              "WyriHaximus\\React\\Mutex\\Memory::release"
+            ]
+        },
+        "LogicalOr": {
             "ignore": [
               "WyriHaximus\\React\\Mutex\\Memory::release"
             ]
         },
         "MethodCallRemoval": {
             "ignore": [
-              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice",
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::cannotReleaseLockWithWrongRng"
             ]
         },
         "PublicVisibility": {
             "ignore": [
-              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice",
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::cannotReleaseLockWithWrongRng"
             ]
         }
     },
