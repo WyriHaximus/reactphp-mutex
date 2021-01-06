@@ -15,7 +15,7 @@
         "@default": true,
         "ArrayItemRemoval": {
             "ignore": [
-              "WyriHaximus\\React\\Mutex\\MutexTestsTrait::thatYouCantRequiredTheSameLockTwice"
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
             ]
         },
         "LogicalNot": {
@@ -25,12 +25,12 @@
         },
         "MethodCallRemoval": {
             "ignore": [
-              "WyriHaximus\\React\\Mutex\\MutexTestsTrait::thatYouCantRequiredTheSameLockTwice"
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
             ]
         },
         "PublicVisibility": {
             "ignore": [
-              "WyriHaximus\\React\\Mutex\\MutexTestsTrait::thatYouCantRequiredTheSameLockTwice"
+              "WyriHaximus\\React\\Mutex\\AbstractMutexTestCase::thatYouCantRequiredTheSameLockTwice"
             ]
         }
     },
