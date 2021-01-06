@@ -1,36 +1,26 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace WyriHaximus\React\Mutex;
 
 final class Lock
 {
-    /** @var string */
-    private $key;
+    private string $key;
 
-    /** @var string */
-    private $rng;
+    private string $rng;
 
-    /**
-     * @param string $key
-     * @param string $rng
-     */
     public function __construct(string $key, string $rng)
     {
         $this->key = $key;
         $this->rng = $rng;
     }
 
-    /**
-     * @return string
-     */
     public function getKey(): string
     {
         return $this->key;
     }
 
-    /**
-     * @return string
-     */
     public function getRng(): string
     {
         return $this->rng;

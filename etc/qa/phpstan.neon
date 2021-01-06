@@ -1,0 +1,7 @@
+parameters:
+	ergebnis:
+		classesAllowedToBeExtended:
+			- WyriHaximus\React\Mutex\AbstractMutexTests
+
+includes:
+	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
