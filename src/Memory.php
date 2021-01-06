@@ -4,40 +4,47 @@ declare(strict_types=1);
 
 namespace WyriHaximus\React\Mutex;
 
+use React\Cache\ArrayCache;
+use React\Cache\CacheInterface;
 use React\Promise\PromiseInterface;
 
-use function array_key_exists;
 use function bin2hex;
 use function random_bytes;
-use function React\Promise\resolve;
-
-use const WyriHaximus\Constants\Boolean\FALSE_;
-use const WyriHaximus\Constants\Boolean\TRUE_;
 
 final class Memory implements MutexInterface
 {
     private const RANDOM_BYTES_LENGTH = 13;
-    /** @var array<Lock> */
-    private array $locks = [];
+    private CacheInterface $locks;
+
+    public function __construct()
+    {
+        $this->locks = new ArrayCache();
+    }
 
     public function acquire(string $key): PromiseInterface
     {
-        if (array_key_exists($key, $this->locks)) {
-            return resolve(null);
-        }
+        /**
+         * @phpstan-ignore-next-line
+         * @psalm-suppress TooManyTemplateParams
+         */
+        return $this->locks->has($key)->then(function (bool $has) use ($key): ?Lock {
+            if ($has) {
+                return null;
+            }
 
-        $rng               = bin2hex(random_bytes(self::RANDOM_BYTES_LENGTH));
-        $this->locks[$key] = new Lock($key, $rng);
+            $rng  = bin2hex(random_bytes(self::RANDOM_BYTES_LENGTH));
+            $lock = new Lock($key, $rng);
+            $this->locks->set($key, $lock);
 
-        return resolve($this->locks[$key]);
+            return $lock;
+        });
     }
 
     public function release(Lock $lock): PromiseInterface
     {
-        if (! array_key_exists($lock->getKey(), $this->locks)) {
-            return resolve(FALSE_);
-        }
-
-        return resolve(TRUE_);
+        /**
+         * @psalm-suppress TooManyTemplateParams
+         */
+        return $this->locks->has($lock->getKey());
     }
 }
