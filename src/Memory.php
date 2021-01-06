@@ -11,6 +11,8 @@ use React\Promise\PromiseInterface;
 use function bin2hex;
 use function random_bytes;
 
+use const WyriHaximus\Constants\Boolean\FALSE_;
+
 final class Memory implements MutexInterface
 {
     private const RANDOM_BYTES_LENGTH = 13;
@@ -45,6 +47,21 @@ final class Memory implements MutexInterface
         /**
          * @psalm-suppress TooManyTemplateParams
          */
-        return $this->locks->has($lock->getKey());
+        return $this->locks->has($lock->getKey())->then(function (bool $has) use ($lock) {
+            if ($has) {
+                return $this->locks->get($lock->getKey());
+            }
+
+            return FALSE_;
+        })->then(
+            /** @phpstan-ignore-next-line */
+            function (?Lock $storedLock) use ($lock) {
+                if ($storedLock instanceof Lock && $storedLock->getRng() === $lock->getRng()) {
+                    return $this->locks->delete($lock->getKey());
+                }
+
+                return ! ($storedLock instanceof Lock) || $storedLock->getRng() === $lock->getRng();
+            }
+        );
     }
 }

@@ -8,7 +8,8 @@
         "react/cache": "^1.1",
         "react/event-loop": "^1.1",
         "react/promise": "^2.7",
-        "wyrihaximus/async-test-utilities": "^3.3"
+        "wyrihaximus/async-test-utilities": "^3.3",
+        "wyrihaximus/constants": "^1.6"
     },
     "config": {
         "platform": {

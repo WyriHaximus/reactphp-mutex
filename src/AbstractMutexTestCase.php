@@ -10,6 +10,8 @@ use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 use function React\Promise\all;
 
+use const WyriHaximus\Constants\Numeric\ONE_FLOAT;
+
 abstract class AbstractMutexTestCase extends AsyncTestCase
 {
     abstract public function provideMutex(LoopInterface $loop): MutexInterface;
@@ -39,5 +41,20 @@ abstract class AbstractMutexTestCase extends AsyncTestCase
 
         self::assertInstanceOf(Lock::class, $firstLock);
         self::assertNull($secondLock);
+    }
+
+    /**
+     * @test
+     */
+    final public function cannotReleaseLockWithWrongRng(): void
+    {
+        $loop  = Factory::create();
+        $mutex = $this->provideMutex($loop);
+
+        $fakeLock = new Lock('key', 'rng');
+        $mutex->acquire('key', ONE_FLOAT);
+
+        $result = $this->await($mutex->release($fakeLock), $loop);
+        self::assertFalse($result);
     }
 }
