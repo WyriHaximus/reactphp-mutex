@@ -6,11 +6,15 @@ namespace WyriHaximus\React\Mutex;
 
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
+use React\Promise\PromiseInterface;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 use function React\Promise\all;
+use function WyriHaximus\React\timedPromise;
 
+use const WyriHaximus\Constants\Numeric\ONE;
 use const WyriHaximus\Constants\Numeric\ONE_FLOAT;
+use const WyriHaximus\Constants\Numeric\TWO_FLOAT;
 
 abstract class AbstractMutexTestCase extends AsyncTestCase
 {
@@ -26,12 +30,14 @@ abstract class AbstractMutexTestCase extends AsyncTestCase
 
         $firstLock         = '';
         $secondLock        = '';
-        $firstMutexPromise = $mutex->acquire('key', 0.1);
+        $firstMutexPromise = $mutex->acquire('key', TWO_FLOAT);
         /** @phpstan-ignore-next-line */
         $firstMutexPromise->then(static function (?Lock $lock) use (&$firstLock): void {
             $firstLock = $lock;
         });
-        $secondtMutexPromise = $mutex->acquire('key', 0.1);
+        $secondtMutexPromise = timedPromise($loop, ONE)->then(
+            static fn (): PromiseInterface => $mutex->acquire('key', TWO_FLOAT)
+        );
         /** @phpstan-ignore-next-line */
         $secondtMutexPromise->then(static function (?Lock $lock) use (&$secondLock): void {
             $secondLock = $lock;

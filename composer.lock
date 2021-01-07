@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f46a9085c9295881287546a4f30d55f",
+    "content-hash": "66d28ff1a478c1cf85b86af0f01fce3b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -7851,6 +7851,61 @@
                 }
             ],
             "time": "2021-01-04T15:53:38+00:00"
+        },
+        {
+            "name": "wyrihaximus/ticking-promise",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/TickingPromise.git",
+                "reference": "d3903d4bebe8e3c5b11464c0bb81802cdeeb3751"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/TickingPromise/zipball/d3903d4bebe8e3c5b11464c0bb81802cdeeb3751",
+                "reference": "d3903d4bebe8e3c5b11464c0bb81802cdeeb3751",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8 || ^7.4",
+                "react/event-loop": "^1.0",
+                "react/promise": "^2.8"
+            },
+            "require-dev": {
+                "wyrihaximus/async-test-utilities": "^3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\React\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com",
+                    "homepage": "http://wyrihaximus.net/"
+                }
+            ],
+            "description": "Wrapping ticks into a promise",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/TickingPromise/issues",
+                "source": "https://github.com/WyriHaximus/TickingPromise/tree/2.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-25T12:43:21+00:00"
         }
     ],
     "packages-dev": [],

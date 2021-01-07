@@ -9,7 +9,8 @@
         "react/event-loop": "^1.1",
         "react/promise": "^2.7",
         "wyrihaximus/async-test-utilities": "^3.3",
-        "wyrihaximus/constants": "^1.6"
+        "wyrihaximus/constants": "^1.6",
+        "wyrihaximus/ticking-promise": "^2.1"
     },
     "config": {
         "platform": {
