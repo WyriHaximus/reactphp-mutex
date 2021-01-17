@@ -5,7 +5,7 @@
     "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
     "Safe\\date", "WyriHaximus\\Constants\\Boolean\\FALSE_", "WyriHaximus\\Constants\\Boolean\\TRUE_",
     "WyriHaximus\\Constants\\Numeric\\ONE", "WyriHaximus\\Constants\\Numeric\\ONE_FLOAT",
-    "WyriHaximus\\Constants\\Numeric\\TWO_FLOAT"
+    "WyriHaximus\\Constants\\Numeric\\TWO", "WyriHaximus\\Constants\\Numeric\\TWO_FLOAT"
   ],
   "php-core-extensions" : [
     "Core",
