@@ -42,25 +42,25 @@ final class Memory implements MutexInterface
         });
     }
 
-    public function release(Lock $lock): PromiseInterface
+    public function release(LockInterface $lock): PromiseInterface
     {
         /**
          * @psalm-suppress TooManyTemplateParams
          */
-        return $this->locks->has($lock->getKey())->then(function (bool $has) use ($lock) {
+        return $this->locks->has($lock->key())->then(function (bool $has) use ($lock) {
             if ($has) {
-                return $this->locks->get($lock->getKey());
+                return $this->locks->get($lock->key());
             }
 
             return FALSE_;
         })->then(
             /** @phpstan-ignore-next-line */
             function (?Lock $storedLock) use ($lock) {
-                if ($storedLock instanceof Lock && $storedLock->getRng() === $lock->getRng()) {
-                    return $this->locks->delete($lock->getKey());
+                if ($storedLock instanceof Lock && $storedLock->rng() === $lock->rng()) {
+                    return $this->locks->delete($lock->key());
                 }
 
-                return ! ($storedLock instanceof Lock) || $storedLock->getRng() === $lock->getRng();
+                return ! ($storedLock instanceof Lock) || $storedLock->rng() === $lock->rng();
             }
         );
     }

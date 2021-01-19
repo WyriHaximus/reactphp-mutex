@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66d28ff1a478c1cf85b86af0f01fce3b",
+    "content-hash": "16e99dc04301806d593d9d4f764b5630",
     "packages": [
         {
             "name": "amphp/amp",
@@ -7759,6 +7759,51 @@
             "time": "2020-01-22T16:22:33+00:00"
         },
         {
+            "name": "wyrihaximus/react-mutex-contracts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
+                "reference": "221b4bfce074600329181c7c05f553e17f85cab0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/221b4bfce074600329181c7c05f553e17f85cab0",
+                "reference": "221b4bfce074600329181c7c05f553e17f85cab0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4",
+                "react/promise": "^2.8"
+            },
+            "require-dev": {
+                "wyrihaximus/async-test-utilities": "^3.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WyriHaximus\\React\\Mutex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Mutex locking contracts for ReactPHP projects",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-19T17:24:12+00:00"
+        },
+        {
             "name": "wyrihaximus/test-utilities",
             "version": "3.4.0",
             "source": {
@@ -7911,7 +7956,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wyrihaximus/react-mutex-contracts": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

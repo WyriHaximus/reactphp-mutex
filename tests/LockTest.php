@@ -18,7 +18,7 @@ final class LockTest extends AsyncTestCase
         $rng  = 'rng';
         $lock = new Lock($key, $rng);
 
-        self::assertSame($key, $lock->getKey());
-        self::assertSame($rng, $lock->getRng());
+        self::assertSame($key, $lock->key());
+        self::assertSame($rng, $lock->rng());
     }
 }

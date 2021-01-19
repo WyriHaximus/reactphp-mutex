@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WyriHaximus\React\Mutex;
 
-final class Lock
+final class Lock implements LockInterface
 {
     private string $key;
 
@@ -16,12 +16,12 @@ final class Lock
         $this->rng = $rng;
     }
 
-    public function getKey(): string
+    public function key(): string
     {
         return $this->key;
     }
 
-    public function getRng(): string
+    public function rng(): string
     {
         return $this->rng;
     }
