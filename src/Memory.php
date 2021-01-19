@@ -7,6 +7,8 @@ namespace WyriHaximus\React\Mutex;
 use React\Cache\ArrayCache;
 use React\Cache\CacheInterface;
 use React\Promise\PromiseInterface;
+use WyriHaximus\React\Mutex\Contracts\LockInterface;
+use WyriHaximus\React\Mutex\Contracts\MutexInterface;
 
 use function bin2hex;
 use function random_bytes;
