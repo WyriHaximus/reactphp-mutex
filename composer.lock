@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb4ad884f1e670eb8e626cc6c9a91f42",
+    "content-hash": "fde1313a4f8b36a3111425f756c07f1c",
     "packages": [
         {
             "name": "react/cache",
@@ -230,16 +230,16 @@
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
-                "reference": "81170a49a224ec268a43a7c48fbfa70a78021364"
+                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/81170a49a224ec268a43a7c48fbfa70a78021364",
-                "reference": "81170a49a224ec268a43a7c48fbfa70a78021364",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
+                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +249,6 @@
             "require-dev": {
                 "wyrihaximus/async-test-utilities": "^3.3"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -263,7 +262,7 @@
             "description": "Mutex locking contracts for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/master"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/1.0.0"
             },
             "funding": [
                 {
@@ -271,7 +270,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-19T19:07:59+00:00"
+            "time": "2021-01-21T19:16:05+00:00"
         },
         {
             "name": "wyrihaximus/ticking-promise",
@@ -8124,12 +8123,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
@@ -8167,23 +8166,23 @@
                 "validate"
             ],
             "support": {
-                "issues": "https://github.com/webmozart/assert/issues",
-                "source": "https://github.com/webmozart/assert/tree/master"
+                "issues": "https://github.com/webmozarts/assert/issues",
+                "source": "https://github.com/webmozarts/assert/tree/1.9.1"
             },
             "time": "2020-07-08T17:02:28+00:00"
         },
         {
             "name": "webmozart/glob",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/glob.git",
-                "reference": "d1561806559682928e91de5822cd407ec2ace181"
+                "reference": "06358fafde0f32edb4513f4fd88fe113a40c90ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/glob/zipball/d1561806559682928e91de5822cd407ec2ace181",
-                "reference": "d1561806559682928e91de5822cd407ec2ace181",
+                "url": "https://api.github.com/repos/webmozarts/glob/zipball/06358fafde0f32edb4513f4fd88fe113a40c90ee",
+                "reference": "06358fafde0f32edb4513f4fd88fe113a40c90ee",
                 "shasum": ""
             },
             "require": {
@@ -8218,9 +8217,9 @@
             "description": "A PHP implementation of Ant's glob.",
             "support": {
                 "issues": "https://github.com/webmozarts/glob/issues",
-                "source": "https://github.com/webmozarts/glob/tree/4.2.0"
+                "source": "https://github.com/webmozarts/glob/tree/4.3.0"
             },
-            "time": "2021-01-14T18:11:58+00:00"
+            "time": "2021-01-21T06:17:15+00:00"
         },
         {
             "name": "webmozart/path-util",
@@ -8410,16 +8409,16 @@
         },
         {
             "name": "wyrihaximus/react-mutex-test-utilities",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-test-utilities.git",
-                "reference": "7c96df833c51e8bb30baf212a6d9ee605acd6ba2"
+                "reference": "7672ea2ae7d0d1c4dc0c8c7d0d15014bf59965cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-test-utilities/zipball/7c96df833c51e8bb30baf212a6d9ee605acd6ba2",
-                "reference": "7c96df833c51e8bb30baf212a6d9ee605acd6ba2",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-test-utilities/zipball/7672ea2ae7d0d1c4dc0c8c7d0d15014bf59965cd",
+                "reference": "7672ea2ae7d0d1c4dc0c8c7d0d15014bf59965cd",
                 "shasum": ""
             },
             "require": {
@@ -8428,10 +8427,9 @@
                 "react/promise": "^2.7",
                 "wyrihaximus/async-test-utilities": "^3.3",
                 "wyrihaximus/constants": "^1.6",
-                "wyrihaximus/react-mutex-contracts": "dev-master",
+                "wyrihaximus/react-mutex-contracts": "^1.0",
                 "wyrihaximus/ticking-promise": "^2.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -8445,7 +8443,7 @@
             "description": "Mutex locking test utilities for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-test-utilities/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-test-utilities/tree/master"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-test-utilities/tree/1.0.0"
             },
             "funding": [
                 {
@@ -8453,7 +8451,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-19T19:23:45+00:00"
+            "time": "2021-01-21T19:40:04+00:00"
         },
         {
             "name": "wyrihaximus/test-utilities",
@@ -8552,10 +8550,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wyrihaximus/react-mutex-contracts": 20,
-        "wyrihaximus/react-mutex-test-utilities": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

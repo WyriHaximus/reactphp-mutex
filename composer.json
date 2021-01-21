@@ -8,11 +8,11 @@
         "react/event-loop": "^1.1",
         "react/promise": "^2.7",
         "wyrihaximus/constants": "^1.6",
-        "wyrihaximus/react-mutex-contracts": "dev-master",
+        "wyrihaximus/react-mutex-contracts": "^1.0",
         "wyrihaximus/ticking-promise": "^2.1"
     },
     "require-dev": {
-        "wyrihaximus/react-mutex-test-utilities": "dev-master"
+        "wyrihaximus/react-mutex-test-utilities": "^1.0"
     },
     "config": {
         "platform": {
