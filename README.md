@@ -14,24 +14,21 @@ To install via [Composer](http://getcomposer.org/), use the command below, it wi
 composer require wyrihaximus/react-mutex
 ```
 
-# About
-
-This package provides two things:
-* An interface for [`mutex` locking](https://en.wikipedia.org/wiki/Mutual_exclusion)
-* A in-memory implementation of that interface
-
 # Usage
 
 ```php
+use WyriHaximus\React\Mutex\Contracts\LockInterface;use WyriHaximus\React\Mutex\Memory;
+
 $key = 'key'; // Unique key for this operation
+$ttl = 0.1; // The time after which the lock expires
 $mutex = new Memory();
-$mutex->acquire($key)->then(function ($lock) use ($mutex) {
-    if (!($lock instanceof Lock)) {
-        // We couldn't aquired the lock on this key
+$mutex->acquire($key, $ttl)->then(function ($lock) use ($mutex) {
+    if (!($lock instanceof LockInterface)) {
+        // We couldn't acquired the lock on this key
         return;
     }
-    
-    // We aquired the lock on this key
+
+    // We acquired the lock on this key
     // Do long running non-blocking thing
     $mutex->release($lock);
 });
@@ -41,7 +38,7 @@ $mutex->acquire($key)->then(function ($lock) use ($mutex) {
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Cees-Jan Kiewiet
+Copyright (c) 2021 Cees-Jan Kiewiet
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
