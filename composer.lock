@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fde1313a4f8b36a3111425f756c07f1c",
+    "content-hash": "c268d901c7797338e010389b2b92343d",
     "packages": [
         {
             "name": "react/cache",
@@ -230,16 +230,16 @@
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
-                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c"
+                "reference": "b5a5567128035b4c8ce924fcb36e56c72fca7775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
-                "reference": "c2f97f027f2ffa114ca20ecbaa2aaadefdf8b84c",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/b5a5567128035b4c8ce924fcb36e56c72fca7775",
+                "reference": "b5a5567128035b4c8ce924fcb36e56c72fca7775",
                 "shasum": ""
             },
             "require": {
@@ -262,7 +262,7 @@
             "description": "Mutex locking contracts for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/1.0.0"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/1.1.0"
             },
             "funding": [
                 {
@@ -270,7 +270,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T19:16:05+00:00"
+            "time": "2021-04-03T20:22:48+00:00"
         },
         {
             "name": "wyrihaximus/ticking-promise",
