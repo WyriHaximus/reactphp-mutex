@@ -5,7 +5,7 @@
     "require": {
         "php": "^7.4",
         "react/cache": "^1.1",
-        "react/event-loop": "^1.1",
+        "react/event-loop": "^1.2",
         "react/promise": "^2.7",
         "wyrihaximus/constants": "^1.6",
         "wyrihaximus/react-mutex-contracts": "^1.1",
