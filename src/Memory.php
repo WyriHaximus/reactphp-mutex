@@ -12,12 +12,13 @@ use WyriHaximus\React\Mutex\Contracts\MutexInterface;
 
 use function bin2hex;
 use function random_bytes;
-
-use const WyriHaximus\Constants\Boolean\FALSE_;
+use function React\Promise\resolve;
+use function WyriHaximus\React\timedPromise;
 
 final class Memory implements MutexInterface
 {
-    private const RANDOM_BYTES_LENGTH = 13;
+    private const NO_MORE_ATTEMPTS_LEFT = 0;
+    private const RANDOM_BYTES_LENGTH   = 13;
     private CacheInterface $locks;
 
     public function __construct()
@@ -44,17 +45,29 @@ final class Memory implements MutexInterface
         });
     }
 
+    public function spin(string $key, float $ttl, int $attempts, float $interval): PromiseInterface
+    {
+        /**
+         * @phpstan-ignore-next-line
+         */
+        return $this->acquire($key, $ttl)->then(function (?LockInterface $lock) use ($key, $ttl, $attempts, $interval): PromiseInterface {
+            if ($lock instanceof LockInterface || $attempts === self::NO_MORE_ATTEMPTS_LEFT) {
+                return resolve($lock);
+            }
+
+            return timedPromise($interval, [$key, $ttl, --$attempts, $interval])->then(function (array $args): PromiseInterface {
+                return $this->spin(...$args);
+            });
+        });
+    }
+
     public function release(LockInterface $lock): PromiseInterface
     {
         /**
          * @psalm-suppress TooManyTemplateParams
          */
         return $this->locks->has($lock->key())->then(function (bool $has) use ($lock) {
-            if ($has) {
-                return $this->locks->get($lock->key());
-            }
-
-            return FALSE_;
+            return $has ? $this->locks->get($lock->key()) : $has;
         })->then(
             /** @phpstan-ignore-next-line */
             function (?Lock $storedLock) use ($lock) {
