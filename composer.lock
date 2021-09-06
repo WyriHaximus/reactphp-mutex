@@ -262,20 +262,20 @@
         },
         {
             "name": "wyrihaximus/react-mutex-contracts",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/reactphp-mutex-contracts.git",
-                "reference": "f72ad4aff97a96ebb61fe8b0d7fd1500db630f28"
+                "reference": "8c9382f45e984560d1c53448387a82ffcf0fa8d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/f72ad4aff97a96ebb61fe8b0d7fd1500db630f28",
-                "reference": "f72ad4aff97a96ebb61fe8b0d7fd1500db630f28",
+                "url": "https://api.github.com/repos/WyriHaximus/reactphp-mutex-contracts/zipball/8c9382f45e984560d1c53448387a82ffcf0fa8d2",
+                "reference": "8c9382f45e984560d1c53448387a82ffcf0fa8d2",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4",
+                "php": "^8 || ^7.4",
                 "react/promise": "^2.8"
             },
             "require-dev": {
@@ -294,7 +294,7 @@
             "description": "Mutex locking contracts for ReactPHP projects",
             "support": {
                 "issues": "https://github.com/WyriHaximus/reactphp-mutex-contracts/issues",
-                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/2.0.0"
+                "source": "https://github.com/WyriHaximus/reactphp-mutex-contracts/tree/2.1.0"
             },
             "funding": [
                 {
@@ -302,7 +302,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-24T20:09:38+00:00"
+            "time": "2021-09-04T15:51:14+00:00"
         },
         {
             "name": "wyrihaximus/ticking-promise",
