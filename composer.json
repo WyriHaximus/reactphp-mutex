@@ -3,12 +3,12 @@
     "description": "Mutex locking for ReactPHP projects",
     "license": "MIT",
     "require": {
-        "php": "^7.4",
+        "php": "^8 || ^7.4",
         "react/cache": "^1.1",
         "react/event-loop": "^1.2",
-        "react/promise": "^2.7",
+        "react/promise": "^2.8",
         "wyrihaximus/constants": "^1.6",
-        "wyrihaximus/react-mutex-contracts": "^2",
+        "wyrihaximus/react-mutex-contracts": "^2.1",
         "wyrihaximus/ticking-promise": "^3"
     },
     "require-dev": {
