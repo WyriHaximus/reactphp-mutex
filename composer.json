@@ -6,7 +6,7 @@
         "php": "^8 || ^7.4",
         "react/cache": "^1.1",
         "react/event-loop": "^1.2",
-        "react/promise": "^2.8",
+        "react/promise": "^2.9",
         "wyrihaximus/constants": "^1.6",
         "wyrihaximus/react-mutex-contracts": "^2.1",
         "wyrihaximus/ticking-promise": "^3"
