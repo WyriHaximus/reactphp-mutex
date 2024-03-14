@@ -1,7 +1,10 @@
 parameters:
+	level: max
 	ergebnis:
-		classesAllowedToBeExtended:
-			- WyriHaximus\React\Mutex\AbstractMutexTestCase
+		noExtends:
+			classesAllowedToBeExtended:
+			    - WyriHaximus\React\Mutex\AbstractMutexTestCase
 
 includes:
 	- ../../vendor/wyrihaximus/async-test-utilities/rules.neon
+

@@ -28,11 +28,8 @@ final class Memory implements MutexInterface
 
     public function acquire(string $key, float $ttl): PromiseInterface
     {
-        /**
-         * @phpstan-ignore-next-line
-         * @psalm-suppress TooManyTemplateParams
-         */
-        return $this->locks->has($key)->then(function (bool $has) use ($key, $ttl): ?Lock {
+        /** @phpstan-ignore-next-line */
+        return $this->locks->has($key)->then(function (bool $has) use ($key, $ttl): Lock|null {
             if ($has) {
                 return null;
             }
@@ -47,10 +44,8 @@ final class Memory implements MutexInterface
 
     public function spin(string $key, float $ttl, int $attempts, float $interval): PromiseInterface
     {
-        /**
-         * @phpstan-ignore-next-line
-         */
-        return $this->acquire($key, $ttl)->then(function (?LockInterface $lock) use ($key, $ttl, $attempts, $interval): PromiseInterface {
+        /** @phpstan-ignore-next-line */
+        return $this->acquire($key, $ttl)->then(function (LockInterface|null $lock) use ($key, $ttl, $attempts, $interval): PromiseInterface {
             if ($lock instanceof LockInterface || $attempts === self::NO_MORE_ATTEMPTS_LEFT) {
                 return resolve($lock);
             }
@@ -63,20 +58,17 @@ final class Memory implements MutexInterface
 
     public function release(LockInterface $lock): PromiseInterface
     {
-        /**
-         * @psalm-suppress TooManyTemplateParams
-         */
-        return $this->locks->has($lock->key())->then(function (bool $has) use ($lock) {
+        return $this->locks->has($lock->key())->then(function (bool $has) use ($lock): PromiseInterface|bool {
             return $has ? $this->locks->get($lock->key()) : $has;
         })->then(
             /** @phpstan-ignore-next-line */
-            function (?Lock $storedLock) use ($lock) {
+            function (Lock|null $storedLock) use ($lock): PromiseInterface|bool {
                 if ($storedLock instanceof Lock && $storedLock->rng() === $lock->rng()) {
                     return $this->locks->delete($lock->key());
                 }
 
                 return ! ($storedLock instanceof Lock) || $storedLock->rng() === $lock->rng();
-            }
+            },
         );
     }
 }
