@@ -9,9 +9,7 @@ use WyriHaximus\React\Mutex\Lock;
 
 final class LockTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function getters(): void
     {
         $key  = 'key';
